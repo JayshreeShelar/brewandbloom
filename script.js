@@ -6,8 +6,6 @@ const ICONS = {
   "badge-check": "<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.78 4.78 4 4 0 0 1-6.74 0 4 4 0 0 1-4.78-4.78 4 4 0 0 1 0-6.74Z\"/><path d=\"m9 12 2 2 4-4\"/>",
   "bean": "<path d=\"M10.165 6.598C9.954 7.478 9.64 8.36 9 9c-.64.64-1.521.954-2.402 1.165A6 6 0 0 0 8 22c7.732 0 14-6.268 14-14a6 6 0 0 0-11.835-1.402Z\"/><path d=\"M5.341 10.62a4 4 0 1 0 5.279-5.28\"/>",
   "book-open": "<path d=\"M12 7v14\"/><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"/>",
-  "chevron-left": "<path d=\"m15 18-6-6 6-6\"/>",
-  "chevron-right": "<path d=\"m9 18 6-6-6-6\"/>",
   "check": "<path d=\"M20 6 9 17l-5-5\"/>",
   "clock": "<circle cx=\"12\" cy=\"12\" r=\"10\"/><polyline points=\"12 6 12 12 16 14\"/>",
   "coffee": "<path d=\"M10 2v2\"/><path d=\"M14 2v2\"/><path d=\"M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1\"/><path d=\"M6 2v2\"/>",
@@ -20,6 +18,7 @@ const ICONS = {
   "leaf": "<path d=\"M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z\"/><path d=\"M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12\"/>",
   "map-pin": "<path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/>",
   "menu": "<path d=\"M4 6h16\"/><path d=\"M4 12h16\"/><path d=\"M4 18h16\"/>",
+  "x": "<path d=\"m18 6-12 12\"/><path d=\"m6 6 12 12\"/>",
   "message-circle": "<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/>",
   "phone": "<path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/>",
   "send": "<path d=\"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z\"/><path d=\"m21.854 2.147-10.94 10.939\"/>",
@@ -109,9 +108,9 @@ function renderTabs(){
 function cardHTML(p, i){
   const msg = `Hello ${SHOP_NAME}! I'd like to know more about the ${p.name} (${fmt(p.price)}). Is it available?`;
   return `
-  <article class="group relative mt-16 animate-fade-up rounded-3xl border border-caramel/20 bg-white px-3 pb-4 pt-[4.5rem] text-center shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-espresso hover:bg-espresso hover:shadow-2xl hover:shadow-espresso/40 [animation-delay:${i * 50}ms] sm:mt-24 sm:px-4 sm:pt-24">
-    <div class="absolute -top-14 left-1/2 grid h-28 w-28 -translate-x-1/2 place-items-center overflow-hidden rounded-full border-[3px] border-caramel bg-latte text-caramel shadow-xl ring-4 ring-cream transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:ring-espresso sm:-top-20 sm:h-40 sm:w-40">
-      ${ic(prodIcon[p.cat], 'h-10 w-10')}
+  <article class="group relative mt-10 animate-fade-up rounded-3xl border border-caramel/20 bg-white px-3 pb-4 pt-12 text-center shadow-md transition-all duration-500 hover:-translate-y-2 hover:border-espresso hover:bg-espresso hover:shadow-2xl hover:shadow-espresso/40 [animation-delay:${i * 50}ms] sm:mt-12 sm:px-4 sm:pt-14">
+    <div class="absolute -top-10 left-1/2 grid h-20 w-20 -translate-x-1/2 place-items-center overflow-hidden rounded-full border-2 border-caramel bg-latte text-caramel shadow-lg ring-4 ring-cream transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:ring-espresso sm:-top-12 sm:h-24 sm:w-24">
+      ${ic(prodIcon[p.cat], 'h-8 w-8')}
       <img src="${p.img}" alt="${p.name}" loading="lazy" data-hide-on-error class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" />
     </div>
     <div class="flex items-center justify-center gap-1.5 text-[10px] font-semibold">
@@ -181,8 +180,21 @@ function onScroll(){
   });
 }
 window.addEventListener('scroll', onScroll, { passive: true });
-$('menuBtn').addEventListener('click', () => $('mobMenu').classList.toggle('hidden'));
-document.querySelectorAll('#mobMenu a').forEach(a => a.addEventListener('click', () => $('mobMenu').classList.add('hidden')));
+const menuBtn = $('menuBtn');
+const mobMenu = $('mobMenu');
+menuBtn.addEventListener('click', () => {
+  const isOpening = mobMenu.classList.contains('hidden');
+  mobMenu.classList.toggle('hidden', !isOpening);
+  menuBtn.innerHTML = ic(isOpening ? 'x' : 'menu', 'w-5 h-5');
+  menuBtn.setAttribute('aria-label', isOpening ? 'Close menu' : 'Open menu');
+  menuBtn.setAttribute('aria-expanded', String(isOpening));
+});
+document.querySelectorAll('#mobMenu a').forEach(a => a.addEventListener('click', () => {
+  mobMenu.classList.add('hidden');
+  menuBtn.innerHTML = ic('menu', 'w-5 h-5');
+  menuBtn.setAttribute('aria-label', 'Open menu');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}));
 
 /* ---------- SCROLL REVEAL ---------- */
 const io = new IntersectionObserver(es => es.forEach(e => {
@@ -199,53 +211,3 @@ hydrateIcons($('tabs'));
 hideBrokenImages();
 onScroll();
 document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
-
-/* ---------- BANNER SLIDER ---------- */
-(function(){
-  const slides = [...document.querySelectorAll('#bannerSlider [data-slide]')];
-  if (!slides.length) return;
-  const dotsBox = $('bnDots'), bar = $('bnBar');
-  const DELAY = 5000;
-  let cur = 0, timer;
-  dotsBox.innerHTML = slides.map((_, i) => `<button type="button" aria-label="Go to banner ${i + 1}" data-i="${i}" class="h-2 w-2 rounded-full bg-white/50 transition-all duration-300"></button>`).join('');
-  const dots = [...dotsBox.children];
-  function show(n){
-    cur = (n + slides.length) % slides.length;
-    slides.forEach((s, i) => {
-      const on = i === cur;
-      s.classList.toggle('is-active', on);
-      s.classList.toggle('opacity-0', !on);
-      s.classList.toggle('pointer-events-none', !on);
-      s.setAttribute('aria-hidden', on ? 'false' : 'true');
-    });
-    dots.forEach((d, i) => {
-      const on = i === cur;
-      d.classList.toggle('w-8', on); d.classList.toggle('bg-caramel', on);
-      d.classList.toggle('w-2', !on); d.classList.toggle('bg-white/50', !on);
-    });
-    const next = slides[(cur + 1) % slides.length].querySelector('img[loading="lazy"]');
-    if (next) next.loading = 'eager';
-  }
-  function restartBar(){
-    bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run');
-  }
-  function start(){ stop(); restartBar(); timer = setInterval(() => { show(cur + 1); restartBar(); }, DELAY); }
-  function stop(){ clearInterval(timer); bar.classList.remove('run'); }
-  $('bnPrev').addEventListener('click', () => { show(cur - 1); start(); });
-  $('bnNext').addEventListener('click', () => { show(cur + 1); start(); });
-  dotsBox.addEventListener('click', e => { const b = e.target.closest('[data-i]'); if (b){ show(+b.dataset.i); start(); } });
-  const box = $('home');
-  box.addEventListener('mouseenter', stop);
-  box.addEventListener('mouseleave', start);
-  let x0 = null, y0 = null;
-  box.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; stop(); }, { passive: true });
-  box.addEventListener('touchend', e => {
-    if (x0 !== null){
-      const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
-      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
-    }
-    x0 = null; start();
-  });
-  document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-  show(0); start();
-})();
